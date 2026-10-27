@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MS Code - Projeto Estoque 2025</title>
+  <title>MS Code - Projeto Estoque 2026</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -25,8 +25,7 @@
           <ul class="nav nav-pills d-flex align-items-center">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Início</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Vendas
               </a>
               <ul class="dropdown-menu">
@@ -35,13 +34,12 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Produtos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/produtos.html">Estoque</a></li>
-                <li><a class="dropdown-item" href="categorias.html">Categorias</a></li>
+                <li><a class="dropdown-item" href="/produtos">Estoque</a></li>
+                <li><a class="dropdown-item active" href="/categoria">Categorias</a></li>
               </ul>
             </li>
             <li class="nav-item"><a href="#" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
@@ -51,33 +49,27 @@
     </div>
 
     <div class="container py-5">
-      <div class="mb-4 d-flex flex-row justify-content-between">
-        <h1>Categorias</h1>
-        <div>
-          <a href="nova_categoria.html" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
-        </div>
+      <div class="mb-4">
+        <h1>Editar categoria</h1>
       </div>
 
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nome</th>
-            <th scope="col-1 text-align-right">Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Informática</td>
-            <td class="col-1 text-align-right">
-              <button class="btn btn-secondary btn-sm" title="Editar"><i class="bi bi-pencil"></i></button>
-              <button class="btn btn-danger btn-sm" title="Excluir"><i class="bi bi-trash"></i></button>
-            </td>
-          </tr>
-        </tbody>
-
-      </table>
+      <div class="w-50 mt-2">
+        <form action="/atualizar_categoria" method="post">
+          <div class="mb-3">
+            <label for="novo_id" class="form-label">Id: </label>
+            <input type="number" class="form-control" id="novo_id" name="novo_id"
+              value="<?php echo (int) $data['categoria']['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo (int) $data['categoria']['id']; ?>">
+          </div>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome"
+              value="<?php echo htmlspecialchars($data['categoria']['nome']); ?>">
+          </div>
+          <a href="/categoria" class="btn btn-outline-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

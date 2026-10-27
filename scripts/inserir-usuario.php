@@ -6,9 +6,9 @@ use App\Database\Query;
 
 $query = new Query();
 
-$nome = 'Fulano da Silva';
-$email = 'admin@admin.com';
-$senha = 'minha_senha';
+$nome = 'Ezequiel Pires';
+$email = 'teste@gmail.com';
+$senha = 'tested';
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 

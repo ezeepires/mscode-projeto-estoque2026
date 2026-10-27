@@ -10,9 +10,9 @@ class Query
     {
         $database = new Database(
             host: '127.0.0.1',
-            database: 'mscode_estoque2025',
-            username: 'root',
-            password: 'root',
+            database: 'mscode_estoque_2026',
+            username: 'zeca',
+            password: '2026',
             port: 3306,
         );
 

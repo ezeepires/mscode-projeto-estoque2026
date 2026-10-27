@@ -3,6 +3,10 @@
 require_once '../vendor/autoload.php';
 require_once './routes.php';
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $uri = rtrim($uri, '/');
 
