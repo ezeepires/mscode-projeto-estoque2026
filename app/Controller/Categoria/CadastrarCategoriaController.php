@@ -21,11 +21,15 @@ class CadastrarCategoriaController extends AbstractController
                 throw new \Exception("Informe o nome da categoria!");
             }
 
-            $id = null;
-
-            if (isset($requestData['id']) && $requestData['id'] !== '') {
-                $id = (int) $requestData['id'];
+            if (! isset($requestData['id']) || trim((string) $requestData['id']) === '') {
+                throw new \Exception("Informe o id da categoria!");
             }
+
+            if (! ctype_digit(trim((string) $requestData['id']))) {
+                throw new \Exception("Id inválido! Use apenas números inteiros");
+            }
+
+            $id = (int) $requestData['id'];
 
             $this->model->cadastrar(trim($requestData['nome']), $id);
 

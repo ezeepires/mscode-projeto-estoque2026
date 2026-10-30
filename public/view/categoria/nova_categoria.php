@@ -57,7 +57,7 @@
         <form action="/cadastrar_categoria" method="post">
           <div class="mb-3">
             <label for="id" class="form-label">Id: </label>
-            <input type="number" class="form-control" id="id" name="id">
+            <input type="number" min="0" class="form-control" id="id" name="id" required>
           </div>
           <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>

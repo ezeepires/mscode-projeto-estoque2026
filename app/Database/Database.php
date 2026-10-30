@@ -29,6 +29,10 @@ readonly class Database
             );
 
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $this->pdo->exec(
+                "SET SESSION sql_mode = CONCAT_WS(',', NULLIF(@@sql_mode, ''), 'NO_AUTO_VALUE_ON_ZERO')"
+            );
         } catch (PDOException $e) {
             echo "Erro na conexão: {$e->getMessage()}";
             exit;

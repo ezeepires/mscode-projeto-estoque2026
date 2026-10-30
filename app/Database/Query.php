@@ -55,7 +55,7 @@ class Query
 
             $stmt->execute();
 
-            return $this->pdo->lastInsertId();
+            return (int) $this->pdo->lastInsertId();
         } catch (\PDOException $e) {
             echo "Erro na inserção: {$e->getMessage()}";
 

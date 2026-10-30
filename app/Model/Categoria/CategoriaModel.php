@@ -29,7 +29,7 @@ class CategoriaModel
 
         $resultado = $this->query->insert('categoria', $dados);
 
-        if (! $resultado) {
+        if ($resultado === false) {
             throw new \Exception("Erro ao criar categoria: " . $nome);
             
         }

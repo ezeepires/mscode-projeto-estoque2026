@@ -17,7 +17,7 @@ class ExcluirCategoriaController extends AbstractController
     public function index(array $requestData): void
     {
         try {
-            if (empty($requestData['id'])) {
+            if (!isset($requestData['id']) || $requestData['id'] === '') {
                 throw new \Exception("Informe a categoria que deseja excluir!");
             }
 

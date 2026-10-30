@@ -57,7 +57,7 @@
         <form action="/atualizar_categoria" method="post">
           <div class="mb-3">
             <label for="novo_id" class="form-label">Id: </label>
-            <input type="number" class="form-control" id="novo_id" name="novo_id"
+            <input type="number" min="0" class="form-control" id="novo_id" name="novo_id"
               value="<?php echo (int) $data['categoria']['id']; ?>">
             <input type="hidden" name="id" value="<?php echo (int) $data['categoria']['id']; ?>">
           </div>
